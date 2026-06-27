@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aqiqah - Kirana Yuki Amelia</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <p class="opening-text">Assalamualaikum Warahmatullahi Wabarakatuh</p>
+            <p class="invitation-text">Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan acara</p>
+            <h1 class="event-title">Aqiqah</h1>
+            <p class="baby-gender">Untuk putri kami</p>
+            <h2 class="baby-name" id="babyName">Kirana Yuki Amelia</h2>
+        </header>
+
+        <audio id="backgroundMusic" loop style="display:none;">
+            <source src="" type="audio/mpeg">
+        </audio>
+
+        <section class="details-section">
+            <div class="detail-card">
+                <div class="detail-icon">📅</div>
+                <h3>Tanggal</h3>
+                <p id="eventDate">Sabtu, 4 Juli 2026</p>
+            </div>
+            <div class="detail-card">
+                <div class="detail-icon">⏰</div>
+                <h3>Waktu</h3>
+                <p id="eventTime">12.00 WIB - Selesai</p>
+            </div>
+            <div class="detail-card">
+                <div class="detail-icon">📍</div>
+                <h3>Tempat</h3>
+                <p id="eventPlace">Warung Coklat<br>Jl. Pembangunan, Kp. Lalang<br>Kec. Sunggal, Kabupaten Deli Serdang<br>Sumatera Utara 20351</p>
+            </div>
+        </section>
+
+        <section class="photo-section">
+            <h2 class="section-title">Foto-foto Kirana</h2>
+            <div class="photo-gallery" id="photoGallery">
+                <div class="photo-placeholder">
+                    <span>🖼️</span>
+                    <p>Foto akan segera ditampilkan</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="message-section">
+            <h2 class="section-title">Kalimat Ucapan</h2>
+            <div class="message-box" id="messageBox">
+                <p>Semoga Kirana Yuki Amelia menjadi anak yang sholehah, sehat selalu, dan menjadi kebanggaan keluarga. Aamiin Ya Rabbal 'Alamin.</p>
+            </div>
+        </section>
+
+        <section class="map-section">
+            <h2 class="section-title">Lokasi Acara</h2>
+            <div class="map-container" id="mapContainer">
+                <iframe 
+                    src="https://www.google.com/maps?q=Warung%20Coklat%2C%20Jl.%20Pembangunan%2C%20Kp.%20Lalang%2C%20Kec.%20Sunggal%2C%20Kabupaten%20Deli%20Serdang%2C%20Sumatera%20Utara%2020351&output=embed"
+                    width="100%" 
+                    height="350" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+            </div>
+            <p class="map-note">Klik peta untuk navigasi ke lokasi</p>
+        </section>
+
+        <footer class="footer">
+            <p id="footerText">Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan do'a restu.</p>
+            <p class="closing">Wassalamualaikum Warahmatullahi Wabarakatuh</p>
+            <p class="family-name" id="familyName">Keluarga Besar</p>
+        </footer>
+    </div>
+
+    <script src="files.js"></script>
+    <script src="config.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
