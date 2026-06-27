@@ -7,6 +7,14 @@ const FILES = {
     
     // Daftar file foto (letakkan file di folder photos/ dan tulis nama filenya di bawah:
     photos: [
-        // Contoh: "foto1.jpg", "foto2.png"
+        "photo_1_2026-06-28_00-43-00.jpg",
+        "photo_2_2026-06-28_00-43-00.jpg",
+        "photo_3_2026-06-28_00-43-00.jpg",
+        "photo_4_2026-06-28_00-43-00.jpg",
+        "photo_5_2026-06-28_00-43-00.jpg",
+        "photo_6_2026-06-28_00-43-00.jpg",
+        "photo_7_2026-06-28_00-43-00.jpg",
+        "photo_8_2026-06-28_00-43-00.jpg",
+        "photo_9_2026-06-28_00-43-00.jpg"
     ]
 };
