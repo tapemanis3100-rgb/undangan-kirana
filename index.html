@@ -8,8 +8,24 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
+    <!-- Landing Page / Pintu Masuk -->
+    <div class="landing-page" id="landingPage">
+        <div class="landing-content">
+            <div class="decorative-top"></div>
+            <h1 class="landing-title">Assalamualaikum</h1>
+            <p class="landing-text">Dengan memohon rahmat dan ridho Allah SWT</p>
+            <p class="baby-name-landing">Kirana Yuki Amelia</p>
+            <button class="open-invitation-btn" id="openInvitationBtn">
+                🎀 Buka Undangan 🎀
+            </button>
+            <div class="decorative-bottom"></div>
+        </div>
+    </div>
+
+    <!-- Halaman Utama (Awalnya disembunyikan) -->
+    <div class="container" id="mainContainer" style="display: none;">
         <header class="header">
+            <div class="decorative-top"></div>
             <p class="opening-text">Assalamualaikum Warahmatullahi Wabarakatuh</p>
             <p class="invitation-text">Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud menyelenggarakan acara</p>
             <h1 class="event-title">Aqiqah</h1>
@@ -17,7 +33,7 @@
             <h2 class="baby-name" id="babyName">Kirana Yuki Amelia</h2>
         </header>
 
-        <audio id="backgroundMusic" loop style="display:none;">
+        <audio id="backgroundMusic" loop preload="auto" style="display:none;">
             <source src="" type="audio/mpeg">
         </audio>
 

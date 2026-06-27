@@ -1,8 +1,53 @@
 let config = getConfig();
+let audio = null;
+let musicSrc = null;
 
 // Inisialisasi website saat halaman dimuat
 function initWebsite() {
-    // Terapkan semua konfigurasi
+    audio = document.getElementById('backgroundMusic');
+    
+    // Siapkan sumber musik
+    if (config.selectedMusic && FILES.music.includes(config.selectedMusic)) {
+        musicSrc = `music/${config.selectedMusic}`;
+    } else if (FILES.music.length > 0) {
+        musicSrc = `music/${FILES.music[0]}`;
+    } else if (config.uploadedMusic) {
+        musicSrc = config.uploadedMusic;
+    }
+    
+    if (musicSrc) {
+        audio.src = musicSrc;
+        audio.loop = true;
+    }
+    
+    // Event listener untuk tombol buka undangan
+    const openBtn = document.getElementById('openInvitationBtn');
+    openBtn.addEventListener('click', openInvitation);
+    
+    // Inisialisasi konten (tetap terapkan dulu, meskipun halaman utama disembunyikan)
+    updateContent();
+}
+
+// Fungsi buka undangan dan putar musik
+function openInvitation() {
+    // Sembunyikan landing page
+    const landingPage = document.getElementById('landingPage');
+    landingPage.style.display = 'none';
+    
+    // Tampilkan halaman utama
+    const mainContainer = document.getElementById('mainContainer');
+    mainContainer.style.display = 'block';
+    
+    // Putar musik (ini PASTI berfungsi karena sudah ada interaksi pengguna!)
+    if (musicSrc) {
+        audio.play().catch(e => {
+            console.log('Gagal putar musik:', e);
+        });
+    }
+}
+
+// Update semua konten
+function updateContent() {
     document.getElementById('babyName').textContent = config.babyName;
     document.getElementById('eventDate').textContent = config.eventDate;
     document.getElementById('eventTime').textContent = config.eventTime;
@@ -25,32 +70,7 @@ function initWebsite() {
         </iframe>
     `;
     
-    // Terapkan musik dari upload atau folder music/ dan autoplay
-    const audio = document.getElementById('backgroundMusic');
-    let musicSrc = null;
-    
-    if (config.uploadedMusic) {
-        musicSrc = config.uploadedMusic;
-    } else if (config.selectedMusic && FILES.music.includes(config.selectedMusic)) {
-        musicSrc = `music/${config.selectedMusic}`;
-    } else if (FILES.music.length > 0) {
-        musicSrc = `music/${FILES.music[0]}`;
-    }
-    
-    if (musicSrc) {
-        audio.src = musicSrc;
-        // Coba autoplay musik
-        audio.play().catch((error) => {
-            console.log('Autoplay diblokir oleh browser:', error);
-            // Jika autoplay diblokir, coba putar saat user berinteraksi dengan halaman
-            document.body.addEventListener('click', function playOnInteraction() {
-                audio.play().catch(() => {});
-                document.body.removeEventListener('click', playOnInteraction);
-            }, { once: true });
-        });
-    }
-    
-    // Terapkan foto dari upload atau folder photos/
+    // Terapkan foto
     renderPhotos();
 }
 
@@ -59,14 +79,14 @@ function renderPhotos() {
     const gallery = document.getElementById('photoGallery');
     let allPhotos = [];
     
-    // Tambahkan foto yang diupload
-    if (config.uploadedPhotos && config.uploadedPhotos.length > 0) {
-        allPhotos = allPhotos.concat(config.uploadedPhotos);
-    }
-    
-    // Tambahkan foto dari folder (jika ada)
+    // Prioritaskan foto dari folder untuk GitHub Pages
     if (FILES.photos && FILES.photos.length > 0) {
         allPhotos = allPhotos.concat(FILES.photos.map(f => `photos/${f}`));
+    }
+    
+    // Tambahkan foto yang diupload (untuk preview lokal saja)
+    if (config.uploadedPhotos && config.uploadedPhotos.length > 0) {
+        allPhotos = allPhotos.concat(config.uploadedPhotos);
     }
     
     if (allPhotos.length === 0) {
