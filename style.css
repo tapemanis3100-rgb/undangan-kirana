@@ -172,6 +172,18 @@ body {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
+.parents-name {
+    font-size: 20px;
+    color: rgba(255, 255, 255, 0.95);
+    margin-top: 25px;
+    line-height: 2;
+}
+
+.parents-name span {
+    font-weight: 600;
+    font-size: 22px;
+}
+
 .details-section {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -441,6 +453,13 @@ body {
     color: white;
     margin-top: 25px;
     font-weight: 600;
+}
+
+.additional-text {
+    margin-top: 20px;
+    font-size: 18px;
+    font-style: italic;
+    opacity: 0.9;
 }
 
 .admin-link {
